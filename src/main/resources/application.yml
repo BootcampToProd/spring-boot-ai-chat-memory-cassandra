@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: spring-boot-ai-chat-memory-cassandra
+
+  cassandra:
+    # The data center name for your Cassandra cluster (used for load balancing and topology)
+    local-datacenter: datacenter1
+
+  data:
+    cassandra:
+      # Host or IP address of your Cassandra cluster
+      contact-points: 127.0.0.1
+
+      # Port on which Cassandra is listening
+      port: 9042
+
+      # Username for authenticating with Cassandra
+      username: ${DB_USERNAME}
+
+      # Password for authenticating with Cassandra
+      password: ${DB_PASSWORD}
+
+  # AI configurations
+  ai:
+    openai:
+      api-key: ${GEMINI_API_KEY}
+      base-url: https://generativelanguage.googleapis.com/v1beta/openai
+      chat:
+        completions-path: /chat/completions
+        options:
+          model: gemini-2.0-flash-exp
+
+
